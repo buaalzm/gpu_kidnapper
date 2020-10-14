@@ -18,7 +18,8 @@ class OccupyTask():
     def run(self): 
         while self._running: 
             try:
-                os.system(cfg.cmd) # do something cost gpu
+                os.chdir(cfg.script_path)
+                os.system(cfg.cmd_list[self.id]) # do something cost gpu
                 self.oc_print()
                 self.is_occupied = True
                 self.pd_print.reset()
