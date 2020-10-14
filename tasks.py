@@ -1,6 +1,7 @@
 import time
 import os
 from config import cfg
+from ipdb import set_trace
 
 
 class OccupyTask(): 
@@ -20,6 +21,7 @@ class OccupyTask():
             try:
                 os.chdir(cfg.script_path)
                 os.system(cfg.cmd_list[self.id]) # do something cost gpu
+                print('operating!!!!!:',cfg.cmd_list[self.id])
                 self.oc_print()
                 self.is_occupied = True
                 self.pd_print.reset()

@@ -10,8 +10,8 @@ class WorkerManager():
         self.cfg = cfg
 
     def occupy_start(self):
-        for task_id in self.cfg.target_id_list:
-            task = OccupyTask(id=task_id)
+        for index,task_id in enumerate(self.cfg.target_id_list):
+            task = OccupyTask(id=index)
             self.thread_list.append({'id':task_id,'task':task})
             t = Thread(target = task.run) 
             t.start() 
